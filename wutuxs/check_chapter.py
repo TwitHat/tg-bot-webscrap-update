@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from hanziconv import HanziConv
 import wutuxs.config as config
 
-url = config.main_url + '/html/7/7876/index.html'
+url = f'{config.main_url}/html/7/7876/index.html'
 
 def getLatestChapter():
     # Connect to the URL
@@ -16,7 +16,7 @@ def getLatestChapter():
     a_tags = soup.findAll('a')
 
     chapter_list = []
-    for i in range(0, len(a_tags)-1):  # 'a' tags are for links
+    for i in range(len(a_tags)-1):  # 'a' tags are for links
         one_a_tag = a_tags[i]
 
         try:
