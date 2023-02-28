@@ -30,8 +30,7 @@ def check_wutuxs():
 
 def getTime():
     t = time.localtime()
-    current_time = time.strftime("%H:%M:%S", t)
-    return current_time
+    return time.strftime("%H:%M:%S", t)
 
 def withinCheckPeriod():
     t = time.localtime()
@@ -41,7 +40,7 @@ def withinCheckPeriod():
 if __name__ == '__main__':
     
     print(getTime(), "Program Start!")
-    print("Check hour range: %s:00:00 - %s:00:00" % (start_hour, end_hour))
+    print(f"Check hour range: {start_hour}:00:00 - {end_hour}:00:00")
 
     # send_channel("Program Start!")
 
@@ -54,5 +53,5 @@ if __name__ == '__main__':
 
         if withinCheckPeriod():
             check_wutuxs()
-        
+
         time.sleep(60.0 - ((time.time() - starttime) % 60.0))
